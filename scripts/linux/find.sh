@@ -27,7 +27,7 @@ fi
 
 backup_defaultTA=`adb shell su -c "$BB ls -l --color=never $PARTITION_BY_NAME" | tr -s ' ' | awk '{print $11}'`
 #remove invalid head/tail chars
-backup_defaultTA=`expr match "$backup_defaultTA" '\([0-9a-z\/]*\)'`
+backup_defaultTA=`expr "$backup_defaultTA" : '\([0-9a-z\/]*\)'`
 
 if [[ $backup_defaultTA != /* ]]
 then
