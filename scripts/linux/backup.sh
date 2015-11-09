@@ -20,6 +20,8 @@ touch /tmp/partfile
 partition=`cat /tmp/partfile`
 rm /tmp/partfile
 
+. `dirname $0`/check-root.sh
+
 echo =======================================
 echo  FIND TA PARTITION
 echo =======================================
