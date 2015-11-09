@@ -2,8 +2,15 @@
 
 TMP=../../tmpbak
 
-sudo adb kill-server
-sudo adb start-server
+echo =======================================
+echo  CONNECTING TO DEVICE
+echo =======================================
+echo If this fails, make sure you have udev
+echo rules that give the current user permissions
+echo to use the android device.
+
+adb kill-server
+adb start-server
 adb wait-for-device 
 
 ./busybox-on.sh
