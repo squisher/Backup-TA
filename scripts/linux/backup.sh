@@ -53,7 +53,7 @@ then
 	exit 1
 fi
 
-if [ -d $TMP ]
+if [ ! -d $TMP ]
 then
 	mkdir $TMP
 fi
@@ -68,7 +68,7 @@ echo
 echo =======================================
 echo  INTEGRITY CHECK
 echo =======================================
-localmd5=`md5 $TMP/TA.img | awk {'print $4'} `
+localmd5=`md5sum $TMP/TA.img | awk {'print $1'} `
 
 if [ "$localmd5" != "$backup_backupMD5" ]
 then
